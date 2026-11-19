@@ -51,7 +51,7 @@ data class LlmProviderSpec(
             "aistudio.google.com → API key", null, 0x4285F5,
         )
         val QWEN = LlmProviderSpec(
-            "qwen", "通义千问", "通", LlmStorage.PRESET, "https://dashscope.aliyuncs.com/compatible-mode/v1", true, true,
+            "qwen", "Qwen", "Q", LlmStorage.PRESET, "https://dashscope.aliyuncs.com/compatible-mode/v1", true, true,
             listOf("qwen-max", "qwen-plus", "qwen-turbo", "qwen-long", "qwen3-max", "qwen2.5-72b-instruct"),
             "bailian.console.aliyun.com → API-KEY", null, 0x6B5CFF,
         )
@@ -61,24 +61,24 @@ data class LlmProviderSpec(
             "platform.deepseek.com → API keys", null, 0x476BFA,
         )
         val DOUBAO = LlmProviderSpec(
-            "doubao", "豆包 · 火山方舟", "豆", LlmStorage.PRESET, "https://ark.cn-beijing.volces.com/api/v3", true, true,
+            "doubao", "Doubao · Volcengine Ark", "D", LlmStorage.PRESET, "https://ark.cn-beijing.volces.com/api/v3", true, true,
             listOf("doubao-seed-1-6-250615", "doubao-1-5-pro-32k-250115", "doubao-pro-32k-241215", "doubao-lite-128k-240428"),
             "console.volcengine.com/ark → API Key",
-            "豆包由火山引擎方舟提供。模型一栏可以填模型名（doubao-…），也可以填推理接入点 ID（ep-… 开头，账号不能按名调用时用这种）。",
+            "Doubao is provided through Volcengine Ark. Enter either a model name (doubao-…) or an inference endpoint ID (ep-…) when your account requires one.",
             0x2970D6,
         )
         val OPEN_ROUTER = LlmProviderSpec(
             "openRouter", "Open Router", "OR", LlmStorage.ENDPOINT, "https://openrouter.ai/api/v1", true, true,
             listOf("anthropic/claude-sonnet-4", "openai/gpt-4.1", "google/gemini-2.5-pro", "deepseek/deepseek-chat"),
-            "openrouter.ai/keys", "一个 key 通吃各家模型；模型名要带厂牌前缀（anthropic/… 、openai/…）。", 0x5C5C70,
+            "openrouter.ai/keys", "One key can access multiple providers; include the provider prefix in the model name (for example, anthropic/… or openai/…).", 0x5C5C70,
         )
         val OLLAMA = LlmProviderSpec(
             "ollama", "Ollama", "OL", LlmStorage.ENDPOINT, "http://localhost:11434", true, false,
-            emptyList(), null, "跑在本机或局域网里的电脑上，不联网、不花钱。要填电脑的地址而不是名字。", 0x33333D, local = true,
+            emptyList(), null, "Runs on a computer on your local network. Enter the computer address, not its name.", 0x33333D, local = true,
         )
         val CUSTOM = LlmProviderSpec(
-            "custom", "自定义接口", "＋", LlmStorage.ENDPOINT, "", true, false,
-            emptyList(), null, "任何 OpenAI 兼容的 /v1 地址（中转、自建 vLLM、LM Studio 都算）。密钥可以留空。", 0x737885, local = true,
+            "custom", "Custom endpoint", "+", LlmStorage.ENDPOINT, "", true, false,
+            emptyList(), null, "Any OpenAI-compatible /v1 endpoint, including a self-hosted vLLM or LM Studio server. A key may be optional.", 0x737885, local = true,
         )
 
         /** One flat list in the order someone is likely to reach for: big cloud APIs, Chinese providers, aggregator, local, catch-all. */

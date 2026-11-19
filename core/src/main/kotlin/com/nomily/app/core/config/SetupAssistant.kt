@@ -9,9 +9,9 @@ package com.nomily.app.core.config
  * server can't drift from the client. The text is shared verbatim with the other clients.
  */
 object SetupAssistant {
-    /** Chinese unless an explicit non-Chinese UI language is set: `null` (follow system) counts as Chinese, the primary audience. */
+    /** English is the default; return Chinese only when the user explicitly selects a Chinese UI. */
     fun prompt(appLanguage: String?): String =
-        if (appLanguage != null && !appLanguage.startsWith("zh")) EN_PROMPT else ZH_PROMPT
+        if (appLanguage?.startsWith("zh") == true) ZH_PROMPT else EN_PROMPT
 
     const val ZH_PROMPT = """请帮我把这台电脑部署成 Nomily AI 录音 App 的本地语音服务，做完后把要填进 App 的信息打印给我。分三步：
 第一步，安装并启动 Ollama，设置开机自启并允许局域网访问（OLLAMA_HOST=0.0.0.0），再拉一个适合本机内存的中文对话模型（内存 8G 用 qwen2.5:3b，16G 及以上用 qwen2.5:7b）。
